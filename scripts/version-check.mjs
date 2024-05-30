@@ -6,28 +6,28 @@ import fs from 'node:fs';
 import path from 'node:path';
 import chalk from 'chalk';
 
-// TODO: Remove reference to the prefabs
-const prefabVersion = config.builda.prefab.version;
 console.log(chalk.blue('Checking for updates to Jackanory...\r\n'));
+const currentVersion = config.version;
 /**
  * Check the currently installed version of jackanory against the latest version.
- * TODO: Make this standalone and not rely on the registry.json file.
  */
 axios
-  .get('https://raw.githubusercontent.com/builda-modules/prefab-jackanory/master/registry.json', {
-    validateStatus: () => true
+  .get(
+    'https://raw.githubusercontent.com/foxleigh81/jackanory/master/package.json',
+    {
+      validateStatus: () => true
   })
   .then((response) => {
     if (!response.data) return;
     let version = {
       outdated: false,
-      current: prefabVersion,
-      latest: prefabVersion
+      current: currentVersion,
+      latest: currentVersion
     };
-    if (response.data.version > prefabVersion) {
+    if (response.data.version > currentVersion) {
       version = {
         outdated: true,
-        current: prefabVersion,
+        current: currentVersion,
         latest: response.data.version
       };
       console.warn(
@@ -35,7 +35,7 @@ axios
           'A new version of Jackanory is available\r\n'
         )} \r\n${chalk.bold(
           'Current version:'
-        )} v${prefabVersion}\r\n${chalk.bold('Latest version:')} v${
+        )} v${currentVersion}\r\n${chalk.bold('Latest version:')} v${
           response.data.version
         }\r\n`
       );
@@ -44,10 +44,7 @@ axios
     }
     let contents = `export const version = ${JSON.stringify(version)};`;
 
-    fs.writeFileSync(
-      path.resolve('./.storybook/version.ts'),
-      contents
-    );
+    fs.writeFileSync(path.resolve('./.storybook/version.ts'), contents);
   })
   .catch((error) => {
     console.log(error);
