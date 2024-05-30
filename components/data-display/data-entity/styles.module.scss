@@ -1,0 +1,38 @@
+.title {
+  @include type.heading-small();
+
+  margin-bottom: margin(1.5);
+}
+
+.term {
+  font-weight: bold;
+}
+
+.term,
+.description {
+  line-height: 3rem;
+}
+
+.vertical {
+  .term {
+    font-weight: bold;
+  }
+
+  .description {
+    margin-bottom: margin(1);
+  }
+}
+
+.horizontal {
+  display: table-row;
+
+  .term {
+    padding-right: padding(4);
+  }
+
+  .term,
+  .description {
+    display: table-cell;
+    padding-bottom: margin(1);
+  }
+}

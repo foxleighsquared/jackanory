@@ -1,0 +1,56 @@
+import * as Stories from './icon.stories';
+
+import { Icon } from './index';
+
+import IconGallery from './gallery';
+
+<Meta of={Stories} />
+
+<Title type="alpha">Icon</Title>
+
+The `Icon` component is used to display icons in the UI. It uses a script to
+automatically generate icons from SVG files in the `lib/icons` folder.
+
+<Tip type="warning">
+  Please use the icons in this gallery only. If you need to add a new icon, read
+  the 'Adding a new icon' section below.
+</Tip>
+
+## Usage
+
+<Canvas withToolbar>
+  <Story of={Stories.Primary} />
+</Canvas>
+
+## Props
+
+<ArgTypes of={Icon} />
+
+## Adding a new icon
+
+To add a new icon, simply add an SVG file to the `lib/icons` folder. The name of the file should be all lowercase and use dashes instead of spaces. For example, `my-icon.svg`.
+
+If you are running `yarn devkit`, the icon will automatically be generated and added to the gallery. Otherwise, you can force the icon generation by running `yarn gen:icons`.
+
+### Icon guidelines
+
+In order to keep the icon library consistent, please follow these guidelines when creating new icons:
+
+- Icons should be square
+- Icons should not have any colour or fill applied
+- Icons should not have any stroke applied
+- Icons should not require any fonts or external resources
+- Icons should not have any padding or whitespace around them
+- Icons should not use any special effects such as drop shadows, gradients or glows
+
+Icons that do not follow these guidelines will be rejected.
+
+## Gallery
+
+<Tip type="note">
+  All icons in the gallery are locked at 50px width for the sake of a neat
+  layout in Storybook. You can customise the size of the icon by passing a
+  'width' prop.
+</Tip>
+
+<IconGallery />

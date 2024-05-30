@@ -1,0 +1,81 @@
+// NOTE: If you add or remove a colour variable,
+// you will need to update the _colourvars.module.scss file
+// in the styles folder to match.
+
+/* Backgrounds */
+$bg: hsl(0, 0%, 100%);
+$bg-dark: hsl(216, 81%, 6%);
+$main-panel-bg: hsl(0, 0%, 98%);
+$alt-panel-bg: hsl(0, 0%, 91%);
+
+/* Brand Colours */
+$primary: hsl(215, 60%, 35%);
+$secondary: hsl(215, 75%, 20%);
+$tertiary: hsl(215, 50%, 45%);
+
+/* Dark and light base colours */
+$dark: hsl(0, 0%, 7%);
+$light: hsl(0, 0%, 100%);
+
+/* Grey shades */
+$grey-100: hsl(0, 0%, 98%);
+$grey-200: hsl(0, 0%, 94%);
+$grey-300: hsl(0, 0%, 90%);
+$grey-400: hsl(0, 0%, 77%);
+$grey-500: hsl(0, 0%, 60%);
+$grey-600: hsl(0, 0%, 40%);
+$grey-700: hsl(0, 0%, 20%);
+$grey-800: hsl(0, 0%, 13%);
+$grey-900: hsl(0, 0%, 7%);
+
+/* Typography */
+$body-text: hsl(180, 4%, 2%);
+$body-text-inverse: hsl(0, 0%, 90%);
+
+/* Statuses */
+$warning: hsl(33, 88%, 36%);
+$success: hsl(150, 100%, 26%);
+$danger: hsl(8, 73%, 49%);
+$info: hsl(214, 60%, 48%);
+$error: $danger;
+
+/* Inputs */
+$input-bg: $bg;
+$input-focus-bg: lighten($primary, 59%);
+$input-border: $grey-500;
+$input-border-focus: $primary;
+$label-text: $body-text;
+$input-text: $body-text;
+$disabled-input-text: hsl(0, 5%, 30%);
+
+/* Links */
+/* Style also applies to text buttons */
+$link: hsl(216, 78%, 41%);
+$link-hover: lighten($link, 20%);
+$link-disabled: hsl(0, 5%, 46%);
+
+/* Actions */
+$action: $link;
+$action-destroy: $danger;
+$action-create: $success;
+$action-disabled: hsl(0, 0%, 60%);
+
+$action-hover: lighten($action, 15%);
+$action-destroy-hover: lighten($action-destroy, 10%);
+$action-create-hover: lighten($action-create, 10%);
+
+$action-focus-bg: lighten($primary, 20%);
+$action-destroy-focus-bg: lighten($action-destroy, 20%);
+$action-create-focus-bg: lighten($action-create, 20%);
+
+$action-text: hsl(0, 0%, 100%);
+
+/* Shadows and borders */
+
+$shadow: hsl(0, 0%, 0%);
+$border: hsl(30, 3%, 87%);
+$border-dark: hsl(0, 0%, 44%);
+
+/* A11y compliance */
+
+$keyboard-focus: hsl(45, 100%, 51%);

@@ -1,0 +1,132 @@
+@use 'spacing';
+@use '@fontsource/open-sans/scss/mixins' as OpenSans;
+
+@include OpenSans.fontFace(
+  $weight: 400,
+  $display: 'fallback',
+  $fontName: 'OpenSans'
+);
+@include OpenSans.fontFace(
+  $weight: 400,
+  $style: italic,
+  $display: 'fallback',
+  $fontName: 'OpenSans'
+);
+@include OpenSans.fontFace(
+  $weight: 500,
+  $display: 'fallback',
+  $fontName: 'OpenSans'
+);
+@include OpenSans.fontFace(
+  $weight: 600,
+  $display: 'fallback',
+  $fontName: 'OpenSans'
+);
+@include OpenSans.fontFace(
+  $weight: 600,
+  $style: italic,
+  $display: 'fallback',
+  $fontName: 'OpenSans'
+);
+
+$body-text-size: 1.4rem;
+
+@mixin body-text {
+  font-family: OpenSans, sans-serif;
+  font-size: $body-text-size;
+  line-height: 2.1rem;
+}
+
+$small-text-size: 1.2rem;
+
+@mixin small-text {
+  font-family: OpenSans, sans-serif;
+  font-size: $small-text-size;
+  line-height: 2rem;
+}
+
+$large-text-size: 1.6rem;
+
+@mixin large-text {
+  font-family: OpenSans, sans-serif;
+  font-size: $large-text-size;
+  line-height: 2rem;
+}
+
+/* Headings */
+
+$heading-large-size: 3.4rem;
+
+@mixin heading-large {
+  font-size: $heading-large-size;
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 4.8rem;
+}
+
+$heading-medium-size: 2.4rem;
+
+@mixin heading-medium {
+  font-size: $heading-medium-size;
+  font-weight: 400;
+  letter-spacing: -0.25px;
+  line-height: 3.2rem;
+}
+
+$heading-small-size: 2rem;
+
+@mixin heading-small {
+  font-size: $heading-small-size;
+  font-weight: 600;
+  line-height: 2.4rem;
+}
+
+/* Forms and buttons */
+$input-size: $body-text-size;
+
+@mixin input {
+  font-family: OpenSans, sans-serif;
+  font-size: $input-size;
+  line-height: 1rem;
+}
+
+$input-label-size: $body-text-size;
+
+@mixin input-label {
+  font-family: OpenSans, sans-serif;
+  font-size: $input-label-size;
+  line-height: 1rem;
+}
+
+$input-placeholder-size: $input-size;
+
+@mixin input-placeholder {
+  font-family: OpenSans, sans-serif;
+  font-size: $input-placeholder-size;
+  line-height: 1.8rem;
+}
+
+$form-metadata-size: 1.2rem;
+
+@mixin form-metadata {
+  font-family: OpenSans, sans-serif;
+  font-size: $form-metadata-size;
+  line-height: 1.8rem;
+}
+
+$button-size: $input-size;
+
+@mixin button {
+  font-family: OpenSans, sans-serif;
+  font-size: $button-size;
+  line-height: 1;
+}
+
+/* Links */
+$link-size: $body-text-size;
+
+@mixin link {
+  font-family: OpenSans, sans-serif;
+  font-size: $link-size;
+  line-height: 1;
+}
