@@ -1,0 +1,71 @@
+.page-header {
+  background-color: col.$main-panel-bg;
+  box-shadow:
+    rgb(0 0 0 / 12%) 0 -1px 3px,
+    rgb(0 0 0 / 7%) 0 3px 2px,
+    rgb(0 0 0 / 12%) 0 2px 5px,
+    rgb(0 0 0 / 8%) 0 2px;
+  padding-top: padding(3);
+  position: relative;
+
+  @include util.dark-mode() {
+    background-color: col.$grey-800;
+  }
+
+  .container {
+    padding: 0 padding(2);
+
+    &.center {
+      @include util.mq(bp.$medium) {
+        @include util.central-container();
+      }
+    }
+  }
+
+  .inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacing(1);
+    justify-content: space-between;
+    padding-bottom: padding(3);
+    padding-top: padding(0.5);
+
+    h2 {
+      font-size: type.$heading-medium-size;
+      font-weight: 600;
+      line-height: 4rem;
+      margin-bottom: 0;
+
+      @include util.mq(bp.$small) {
+        font-size: type.$heading-large-size;
+        line-height: 4.5rem;
+        white-space: nowrap;
+      }
+    }
+
+    p {
+      font-size: type.$body-text-size;
+      margin-bottom: 0;
+
+      @include util.mq(bp.$small) {
+        line-height: 3.5rem;
+      }
+    }
+
+    &.with-tabs {
+      padding-bottom: padding(1);
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacing(0.5);
+  height: min-content;
+  margin-top: margin(1);
+
+  @include util.mq(bp.$medium) {
+    margin-top: auto;
+  }
+}

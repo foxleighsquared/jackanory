@@ -1,0 +1,24 @@
+{
+  "extends": "../.builda/export/tsconfig-base.json",
+  "compilerOptions": {
+    "baseUrl": "../.builda/export/",
+    "paths": {
+      "@doc-blocks/*": [
+        ".storybook/doc-blocks/*"
+      ]
+    }
+  },
+  "include": [
+    "markdown.d.ts",
+    "css.d.ts",
+    "scss.d.ts",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".storybook/test-runner.ts",
+    "config/setup.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

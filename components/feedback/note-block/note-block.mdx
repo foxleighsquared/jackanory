@@ -1,0 +1,43 @@
+import * as Stories from './note-block.stories';
+
+<Meta of={Stories} />
+
+<Title />
+
+<Description />
+
+<Tip type="note">This is a legacy component from the very first version of the design system. It is probably more useful to use the Feedback or AlertBanner components instead.</Tip>
+
+<Primary />
+
+<Controls />
+
+## Note colours
+
+Notes can be displayed in one of five colour variants. The clear option is
+shown above.
+
+### Blue note
+
+<Canvas withToolbar sourceState="shown" of={Stories.BlueNote} />
+
+### Green note
+
+<Canvas withToolbar sourceState="shown" of={Stories.GreenNote} />
+
+### Yellow note
+
+<Canvas withToolbar sourceState="shown" of={Stories.YellowNote} />
+
+### Red note
+
+<Canvas withToolbar sourceState="shown" of={Stories.RedNote} />
+
+## Centre-aligned note
+
+The note text can also be centre-aligned.
+
+<Canvas withToolbar sourceState="shown" of={Stories.CenteredNote} />
+
+<Tip type="note">If you are looking for the modal version of this component. It no longer exists. Use the 'Modal' component instead. (You can still use this inside a modal if you want to)</Tip>
+

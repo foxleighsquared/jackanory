@@ -1,0 +1,391 @@
+@mixin responsive-menu-link() {
+  color: col.$link;
+  display: block;
+  font-size: type.$link-size;
+  padding: padding(0.5) padding(1);
+
+  @include util.dark-mode() {
+    color: col.$grey-100;
+
+    &:focus {
+      color: col.$dark;
+    }
+  }
+
+  &:hover {
+    background-color: col.$grey-200;
+  }
+}
+
+.masthead {
+  position: relative;
+
+  .site-name {
+    align-items: center;
+    display: grid;
+    gap: spacing(1.5);
+    grid-template-columns: 35px auto;
+    margin: margin(1.5) margin(2);
+
+    @include util.mq(bp.$medium-small) {
+      grid-template-columns: 50px auto;
+    }
+  }
+
+  .site-name svg {
+    width: 100%;
+  }
+
+  .site-name,
+  .site-name a {
+    @include type.heading-medium();
+
+    color: col.$light;
+    font-weight: bold;
+    text-transform: capitalize;
+
+    @include util.mq(bp.$medium-small) {
+      @include type.heading-large();
+    }
+
+    &:focus {
+      background: none !important;
+      border-radius: $border-radius;
+      box-shadow: rgb(255 255 255) 0 0 0 2px, rgb(255 255 255 / 30%) 0 0 0 5px;
+      color: col.$light !important;
+      opacity: 1;
+      outline: none;
+      text-decoration: none;
+    }
+  }
+}
+
+.inner {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content min-content min-content;
+  position: relative;
+}
+
+.center {
+  .inner {
+    @include util.mq(bp.$medium) {
+      @include util.central-container();
+    }
+  }
+}
+
+.meta-links,
+.brand-bar,
+.app-links {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.meta-links {
+  border-bottom: 1px dotted col.$primary;
+  display: flex;
+  flex-direction: column;
+  grid-row: 3;
+  justify-content: flex-end;
+  list-style: none;
+  margin-bottom: margin(1);
+  padding-bottom: padding(1);
+
+  @include util.mq(bp.$medium-small) {
+    align-items: center;
+    flex-direction: row;
+    gap: spacing(1);
+    grid-row: 1;
+    margin-bottom: 0;
+    padding: 0 padding(1);
+    background: col.$grey-300;
+    border-bottom: none;
+    @include util.dark-mode() {
+      background: col.$grey-900;
+    }
+  }
+
+  @include util.mq(bp.$extra-extra-large) {
+    padding: 0;
+    box-shadow: none;
+  }
+
+  li:not(:first-child):not(:last-child) {
+    @include util.mq(bp.$medium-small) {
+      align-items: flex-end;
+      display: flex;
+      gap: spacing(1);
+
+      &::before {
+        content: "|";
+        font-size: type.$small-text-size;
+      }
+    }
+  }
+
+  a {
+    @include responsive-menu-link();
+
+    @include util.mq(bp.$medium-small) {
+      color: col.$action;
+      font-size: type.$small-text-size;
+      font-weight: 500;
+      padding: unset;
+      text-decoration: none;
+
+      @include util.dark-mode() {
+        color: col.$light;
+        /* stylelint-disable-next-line max-nesting-depth -- dark mode in a pseudo selector in a media query - this is fair use*/
+        &:focus-visible {
+          color: col.$light !important;
+        }
+      }
+
+      &:hover {
+        background-color: transparent;
+        text-decoration: underline;
+      }
+
+      &:focus-visible {
+        @include util.focus-visible(col.$action);
+
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.announcements {
+  li {
+    @include util.statuses('background', '.message');
+
+    a {
+      @include util.focus-visible(col.$light);
+
+      color: col.$light;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.message {
+  align-items: center;
+  color: col.$light;
+  display: grid;
+  gap: spacing(1);
+  grid-template-columns: 50px 1fr 50px;
+  padding: padding(0.5) 0;
+
+  svg {
+    height: 20px;
+  }
+
+  p {
+    font-weight: bold;
+    line-height: 1;
+    margin: 0 !important;
+    text-align: center;
+  }
+}
+
+.dismiss-button {
+  svg {
+    fill: col.$light;
+  }
+}
+
+.brand-bar {
+  background: col.$primary;
+  color: col.$light;
+  grid-row: 0;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr min-content min-content;
+  margin-bottom: margin(1);
+
+  @include util.mq(bp.$medium-small) {
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px;
+    justify-items: space-between;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.welcome-message {
+  margin-left: margin(2);
+  padding-bottom: padding(1);
+  text-align: left;
+
+  @include util.mq(bp.$medium-small) {
+    margin-right: margin(1.3);
+    padding-bottom: 0;
+    text-align: right;
+  }
+}
+
+.app-links {
+  grid-row: -1;
+
+  @include util.mq(bp.$medium-small) {
+    background: col.$secondary;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    list-style: none;
+
+    @include util.mq(bp.$medium-small) {
+      flex-direction: row;
+      gap: spacing(1);
+      margin: margin(0.5) margin(1);
+    }
+  }
+}
+
+.link {
+  @include responsive-menu-link();
+
+  @include util.mq(bp.$medium-small) {
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid transparent;
+    color: col.$light !important;
+    display: block;
+    padding: padding(0.5) padding(1);
+    text-decoration: none;
+
+    &:hover {
+      background-color: rgba(col.$tertiary, 0.5);
+    }
+
+    &.active {
+      border-bottom: 3px solid col.$light;
+    }
+
+    &:focus-visible {
+      @include util.focus-visible(col.$action);
+
+      color: col.$light !important;
+    }
+  }
+}
+
+.menu-toggle-button,
+.theme-switch-button {
+  color: col.$light;
+  font-size: type.$small-text-size;
+}
+
+.menu-toggle {
+  background-color: col.$primary;
+  border-top: 1px dotted col.$secondary;
+  display: flex;
+  justify-content: center;
+
+  @include util.mq(bp.$medium-small) {
+    display: none;
+  }
+}
+
+.theme-switch-button {
+  display: none;
+
+  @include util.mq(bp.$medium-small) {
+    display: block;
+    margin: margin(0.5) 0;
+
+    svg {
+      height: 15px;
+      width: 15px;
+    }
+  }
+}
+
+.menu-closed {
+  .app-links,
+  .meta-links {
+    border-color: transparent;
+    margin-bottom: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding-bottom: 0;
+    transition: all 0.3s ease-in-out;
+
+    @include util.mq(bp.$medium-small) {
+      max-height: 1000px;
+      overflow: visible;
+    }
+  }
+}
+
+.menu-open {
+  .app-links,
+  .meta-links {
+    max-height: 1000px;
+    overflow: visible;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+.burger-menu-icon {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: block;
+  height: 13px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 15px;
+  z-index: 1;
+
+  span {
+    background: col.$light;
+    display: block;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+  }
+
+  .menu-closed & {
+    span:nth-child(1) {
+      top: 0;
+    }
+
+    span:nth-child(2) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    span:nth-child(3) {
+      bottom: 0;
+    }
+  }
+
+  .menu-open & {
+    span:nth-child(1) {
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      bottom: 50%;
+      transform: translateY(50%) rotate(-45deg);
+    }
+  }
+}

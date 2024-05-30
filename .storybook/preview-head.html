@@ -1,0 +1,132 @@
+<style>
+  /* As this is a pure CSS file just for storybook display, a few style lint rules have been disabled here */
+  /* stylelint-disable property-no-vendor-prefix, value-no-vendor-prefix, declaration-colon-newline-after, value-list-comma-newline-after */
+
+  .sb-show-main {
+    background-color: hsl(0, 0%, 100%);
+  }
+
+  [data-theme='dark'] .sb-show-main {
+    background-color: hsl(216, 81%, 6%);
+  }
+
+  .sb-show-main.sb-main-centered #storybook-root {
+    width: 100%;
+  }
+
+  .docs-story > div {
+    display: block;
+  }
+
+  .innerZoomElementWrapper .sb-story > div {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /*base columns and their sizes*/
+    grid-auto-flow: column; /* tells to add new children as new columns*/
+    grid-auto-columns: 1fr; /* tells the size of the dynamic columns*/
+  }
+
+  /* The 'preview-layout' will display in a horizontal layout unless specified
+  via the 'previewLayout' parameter  */
+
+  .preview-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    width: 100%;
+  }
+
+  /* Templates, pages and partials should display always in a vertical layout */
+  div[id^='anchor--templates-'] .preview-layout,
+  div[id^='anchor--pages-'] .preview-layout,
+  div[id^='anchor--partials-'] .preview-layout,
+  .preview-layout--vertical {
+    grid-template-columns: 100%;
+    grid-template-rows: max-content max-content;
+  }
+
+  .docblock-icongallery svg {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .stack-table {
+    width: 100%;
+  }
+
+  .stack-table td a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .stack-table td a:hover {
+    background-color: hsl(240, 3%, 94%);
+  }
+
+  .theme-block.theme-block-overflow-hide-y {
+    overflow-y: clip;
+  }
+
+  .theme-block.theme-block-overflow-hide-x {
+    overflow-x: clip;
+  }
+
+  .theme-block.theme-block-overflow-hide-both {
+    overflow: clip;
+  }
+
+  .docs-story .theme-block {
+    padding: 20px;
+    margin: 10px;
+    border-radius: 0 5px 5px 5px;
+    position: relative;
+    border: 1px dotted #ccc;
+    min-width: 150px;
+  }
+
+  .docs-story .theme-block:before {
+    position: absolute;
+    top: -21px;
+    left: -1px;
+    font-size: 12px;
+    padding: 2px 7px;
+    border-radius: 5px 5px 0 0;
+    border: 1px dotted #ccc;
+    border-bottom: none;
+  }
+
+  .docs-story .theme-block-light {
+    background-color: hsl(0, 0%, 100%);
+    /* The color value simulates setting the body colour via
+    next-themes in the main app, do not remove this */
+    color: hsl(180, 4%, 5%);
+  }
+
+  .docs-story .theme-block-light:before {
+    content: 'Light mode';
+    background-color: hsl(0, 0%, 100%);
+  }
+
+  .docs-story .theme-block-dark {
+    background-color: hsl(216, 81%, 6%);
+    border-style: solid;
+    /* The color value simulates setting the body colour via
+    next-themes in the main app, do not remove this */
+    color: hsl(0, 0%, 90%);
+    border-color: hsl(216, 78%, 29%);
+  }
+
+  .docs-story .theme-block-dark:before {
+    content: 'Dark mode';
+    border-style: solid;
+    background-color: hsl(216, 81%, 6%);
+    border-color: hsl(216, 78%, 29%);
+    border-bottom: none;
+  }
+
+  .docs-story .theme-block-dark .docs-story .theme-block-docs,
+  .docs-story .theme-block-dark .docs-story .theme-block-docs:before {
+    border-style: dotted !important;
+    border-bottom: none;
+  }
+</style>

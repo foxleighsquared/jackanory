@@ -1,0 +1,96 @@
+@mixin note-block() {
+  border: dotted 1px col.$grey-900;
+  border-radius: $border-radius;
+  color: col.$body-text;
+  margin: margin(2) 0;
+  padding: padding(2);
+
+  @include util.dark-mode() {
+    border-style: solid;
+    color: col.$body-text-inverse;
+
+    a {
+      color: col.$body-text-inverse;
+      text-decoration: underline;
+    }
+  }
+}
+
+.clear {
+  @include note-block;
+
+  @include util.dark-mode() {
+    border-color: col.$grey-500;
+  }
+}
+
+.yellow {
+  @include note-block;
+
+  background-color: lighten(col.$warning, 40%);
+  border-color: col.$warning;
+
+  @include util.dark-mode() {
+    background-color: darken(col.$warning, 15%);
+  }
+}
+
+.red {
+  @include note-block;
+
+  background-color: lighten(col.$danger, 40%);
+  border-color: col.$danger;
+
+  @include util.dark-mode() {
+    background-color: darken(col.$danger, 30%);
+  }
+}
+
+.green {
+  @include note-block;
+
+  background-color: lighten(col.$success, 40%);
+  border-color: col.$success;
+
+  @include util.dark-mode() {
+    background-color: darken(col.$success, 20%);
+  }
+}
+
+.blue {
+  @include note-block;
+
+  background-color: lighten(col.$info, 40%);
+  border-color: col.$info;
+
+  @include util.dark-mode() {
+    background-color: darken(col.$info, 30%);
+  }
+}
+
+.yellow,
+.red,
+.green,
+.blue {
+  @include util.dark-mode() {
+    color: col.$body-text-inverse;
+
+    a {
+      color: col.$body-text-inverse;
+      text-decoration: underline;
+    }
+  }
+}
+
+.centered {
+  text-align: center;
+}
+
+.modal {
+  left: 10vw;
+  position: fixed;
+  text-align: center;
+  top: 10%;
+  width: 80vw;
+  z-index: 9999;
+}

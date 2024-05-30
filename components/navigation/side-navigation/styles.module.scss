@@ -1,0 +1,14 @@
+.side-navigation,
+.side-navigation-skeleton {
+  background: col.$primary;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0 -1px 3px rgb(0 0 0 / 12%),
+    0 2px 1px rgb(0 0 0 / 12%),
+    0 4px 7px rgb(0 0 0 / 20%),
+    0 2px rgb(0 0 0 / 8%);
+  height: 100%;
+  padding: padding(1) padding(0);
+  position: relative;
+  width: 280px;
+}

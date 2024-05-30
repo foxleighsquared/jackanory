@@ -1,0 +1,43 @@
+import * as Stories from './masthead.stories';
+
+import { Masthead } from 'components';
+
+<Meta of={Stories} />
+
+<Title of={Masthead} />
+
+<Description of={Masthead} />
+
+Masthead is a core component and is included automatically in the [BaseLayout](/docs/templates-base-layout-layout--docs) template.
+
+<Tip type="note">The theme switcher functionality does not work inside Storybook. You will need to run the next app to see it in action.</Tip>
+
+<Primary />
+
+<Controls />
+
+## With navigation bar
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithNavBar} />
+
+You can also set the active link by passing the `currentPath` prop to the `Masthead` component.
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithNavBarActiveLink} />
+
+## With announcements
+
+Applictation-wide announcement banners can be displayed in the masthead via the `announcements` prop. This prop accepts an array of objects with the following properties:
+
+- `id` - a unique identifier for the announcement
+- `type` - the type of announcement to display. This can be one of `info`, `warning` or `error`
+- `text` - the text to display in the announcement
+
+You can add the `onAnnouncementDismiss` prop to the `Masthead` component to receive a callback when a announcement is dismissed, which contains the full announcement object.
+
+<Tip type="warning">This banner is not for displaying feedback from user actions. Use one of the components in `Feedback` for that.</Tip>
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithAnnouncement} />
+
+Multiple announcements can be displayed at once.
+
+<Canvas withToolbar sourceState="shown" of={Stories.WithMultipleAnnouncements} />
