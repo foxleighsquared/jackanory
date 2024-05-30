@@ -6,6 +6,7 @@ front-end/public/favicons
 front-end/styles/export
 coverage
 **/coverage
+.next
 .env
 .env.local
 .env.*.local
