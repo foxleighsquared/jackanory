@@ -6,11 +6,10 @@ const path = require('node:path');
 
 const config = require(path.resolve(process.cwd(), 'package.json'));
 
-// TODO: Remove reference to the prefabs
-const prefabVersion = config.builda.prefab.version;
+const packageVersion = config.version;
 
 const screen = blessed.screen({
-  title: 'Jackanory Devkit v' + prefabVersion,
+  title: 'Jackanory Devkit v' + packageVersion,
   smartCSR: true,
   autoPadding: false,
   warnings: false,
@@ -31,7 +30,7 @@ const intro = blessed.box({
   padding: 1,
   keys: false,
   mouse: false,
-  label: 'Jackanory Devkit (v' + prefabVersion + ')',
+  label: 'Jackanory Devkit (v' + packageVersion + ')',
   style: {
     fg: 'white',
     bg: '#24508f',
