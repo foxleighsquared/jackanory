@@ -11,12 +11,12 @@ export const appConfig = {
    * The name of the application (in sentence case)
    * @required
    */
-  appName: '%SENTENCE_CASE%',
+  appName: 'Jackanory',
   /**
    * The description of the application (used in the <meta> tag).
    * @required
    */
-  appDescription: '%APP_DESCRIPTION%',
+  appDescription: 'Describe your application here.',
   /**
    * The links to display in the application's masthead.
    * If no links are provided, the navigation bar will not be displayed.
